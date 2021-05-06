@@ -3,34 +3,30 @@ name: CI
 on:
   push:
     branches:
-      - dev
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-18.04
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Update theme
-        #(Optional)If you have the theme added as submodule, you can pull it and use the most updated version
-        run: git submodule update --init --recursive
-        
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: latest
 
-      - name: Build
-        run: hugo --minify
+      - name: Build local ./exampleSite
+        run: hugo --minify --gc --destination ../public --source ./exampleSite --themesDir ../.. --baseURL https://janraasch.github.io/hugo-scroll/
 
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push'
         uses: peaceiris/actions-gh-pages@v3.8.0
         with:
-          personal_token: ${{ secrets.TOKEN }}
-          external_repository:  Nouri-Alnahawi/Orient-Sweets
-          user_name: Nouri-Alnahawi
-          user_email: noury_alnahawi@yahoo.com
-          publish_branch: master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
