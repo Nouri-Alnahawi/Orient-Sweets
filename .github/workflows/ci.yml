@@ -30,8 +30,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3.8.0
         with:
           personal_token: ${{ secrets.TOKEN }}
-          external_repository:  Nouri-Alnahawi/Orient-Sweets.github.io
-          publish_dir: ./public
+          external_repository:  Nouri-Alnahawi/Orient-Sweets
           user_name: Nouri-Alnahawi
           user_email: noury_alnahawi@yahoo.com
           publish_branch: master
