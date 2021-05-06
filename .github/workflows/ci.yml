@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         
-      -name: Update Theme
+      - name: Update Theme
         run: git submodule update --init --recursive
 
       - name: Setup Hugo
