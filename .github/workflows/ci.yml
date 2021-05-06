@@ -33,5 +33,5 @@ jobs:
           external_repository:  Nouri-Alnahawi/Orient-Sweets.github.io
           publish_dir: ./public
           user_name: Nouri-Alnahawi
-          user.email: noury_alnahawi@yahoo.com
+          user_email: noury_alnahawi@yahoo.com
           publish_branch: master
