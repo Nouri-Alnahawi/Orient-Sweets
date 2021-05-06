@@ -19,7 +19,7 @@ jobs:
           hugo-version: latest
 
       - name: Build
-        run: hugo --minify
+        run: hugo --minify --gc --destination ../public --source --themesDir ../..
 
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push'
