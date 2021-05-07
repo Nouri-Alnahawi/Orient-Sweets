@@ -23,7 +23,7 @@ jobs:
           hugo-version: latest
 
       - name: Build
-        run: hugo --minify --gc --destination ../public --source ./content --themesDir ../themes/hugo-scroll
+        run: hugo --minify --gc --destination public --source . --themesDir themes/
 
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push'
